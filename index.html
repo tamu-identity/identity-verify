@@ -141,7 +141,7 @@ layout: none
                           outline: none;
                         }
                       </style>
-                      <button class="pushable">
+                      <button class="pushable" onclick="openClient()">
                         <span class="shadow"></span>
                         <span class="edge"></span>
                         <span class="front">
@@ -203,5 +203,20 @@ layout: none
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script src="https://cdn.withpersona.com/dist/persona-v3.7.3.js"></script>
+        <script>
+            const client = new Persona.Client({
+                templateId: 'tmpl_8Z4MsPYgKy1EHjCR4jd9C1eB',
+                environment: 'sandbox',
+                onComplete: inquiryId => {
+                // Inquiry completed. Optionally tell your server about it.
+                console.log(`Sending finished inquiry ${inquiryId} to backend`);
+                fetch(`/server-handler?inquiry-id=${inquiryId}`);
+                }
+            });
+
+            function openClient() { client.open(); }
+            function exitClient() { client.exit(true); }
+        </script>
     </body>
 </html>
