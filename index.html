@@ -64,8 +64,11 @@ layout: none
                         </ul>
                     </p>
                     <!-- Yes, this is all for a really cool button. -->
-                    <label for="legalname">Full Legal Name:</label>
-                    <input class="name form-control" type="text" id="legalname" placeholder="Joseph Aggie">
+                    <label for="firstname">Legal First Name:</label>
+                    <input class="name form-control" type="text" id="firstname" placeholder="Joseph">
+                    <br>
+                    <label for="lastname">Legal Last Name:</label>
+                    <input class="name form-control" type="text" id="lastname" placeholder="Aggie">
                     <br>
                     <label for="uin">UIN:</label>
                     <input class="uin form-control" type="text" id="uin" placeholder="Your UIN">
@@ -138,9 +141,23 @@ layout: none
         <script src="js/scripts.js"></script>
         <script src="https://cdn.withpersona.com/dist/persona-v3.7.3.js"></script>
         <script>
+            document.getElementById("firstname").addEventListener("change", GetFirstNameData);
+            document.getElementById("lastname").addEventListener("change", GetLastNameData);
+            function GetFirstNameData () {
+              var firstname = document.getElementById("firstname").value;
+              console.log(data);
+            };
+            function GetLastNameData () {
+              var lastname = document.getElementById("lastname").value;
+              console.log(data);
+            };
             const client = new Persona.Client({
                 templateId: 'tmpl_8Z4MsPYgKy1EHjCR4jd9C1eB',
                 environment: 'production',
+                prefill: {
+                  nameFirst: firstname,
+                  nameLast: lastname
+                },
                 onComplete: inquiryId => {
                 // Inquiry completed. Optionally tell your server about it.
                 console.log(`Sending finished inquiry ${inquiryId} to backend`);
@@ -168,6 +185,6 @@ layout: none
                 button.disabled = false; //button is enabled
               }
             }
-            </script>
+        </script>
     </body>
 </html>
