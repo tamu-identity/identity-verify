@@ -67,7 +67,11 @@ layout: none
                     </p>
                     <!-- Yes, this is all for a really cool button. -->
                     <br>
-                    <input class="input" type="text" placeholder="fill me">
+                    <label for="legalname">Full Legal Name:</label>
+                    <input class="name" type="text" id="legalname" placeholder="Joseph Aggie">
+                    <label for="uin">UIN:</label>
+                    <input class="uin" type="text" id="uin" placeholder="Your UIN">
+                    <br>
                     <br>
                     <style>
                         .pushable {
@@ -243,15 +247,17 @@ layout: none
             function exitClient() { client.exit(true); }
         </script>
         <script>
-            let input = document.querySelector(".input");
+            let name = document.querySelector(".name");
+            let uin = document.querySelector(".uin");
             let button = document.querySelector(".button");
             
             button.disabled = true; //setting button state to disabled
             
-            input.addEventListener("change", stateHandle);
+            name.addEventListener("change", stateHandle);
+            uin.addEventListener("change", stateHandle);
             
             function stateHandle() {
-              if (document.querySelector(".input").value === "") {
+              if ((document.querySelector(".name").value === "") || (document.querySelector(".uin").value === "")) {
                 button.disabled = true; //button remains disabled
               } else {
                 button.disabled = false; //button is enabled
