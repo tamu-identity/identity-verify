@@ -152,10 +152,16 @@ layout: none
                         .pushable:focus:not(:focus-visible) {
                           outline: none;
                         }
-                        .pushable:disabled,
-                        .pushable[disabled]{
-                        background-color: #cccccc;
-                        color: #666666;
+                        .pushable:disabled .front {
+                          background: #666666;
+                          transform: none
+                        }
+                        .pushable:disabled .edge {
+                          background: #666666;
+                          transform: none
+                        }
+                        .pushable:disabled .shadow {
+                          transform: none;
                         }
                       </style>
                       <button class="pushable button" onclick="openClient()">
