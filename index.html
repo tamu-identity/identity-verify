@@ -163,7 +163,13 @@ layout: none
                   console.log('hooray FAIL')
                 },
                 onExit() {
-                  document.getElementById('getstarted').innerHTML = document.getElementById('test-alert').innerHTML;
+                  // document.getElementById('getstarted').innerHTML = document.getElementById('test-alert').innerHTML;
+                  var old_element = document.querySelector('#getstarted');
+                  // get the parent
+                  var parent = old_element.parentNode;
+                  var new_element = document.getElementById('test-alert');
+                  // replace child of the parent
+                  parent.replaceChild(new_element, old_element);
                 }
               });
               client.open(); }
