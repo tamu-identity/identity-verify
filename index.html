@@ -67,6 +67,8 @@ layout: none
                     </p>
                     <!-- Yes, this is all for a really cool button. -->
                     <br>
+                    <input class="input" type="text" placeholder="fill me">
+                    <br>
                     <style>
                         .pushable {
                           position: relative;
@@ -151,7 +153,7 @@ layout: none
                           outline: none;
                         }
                       </style>
-                      <button class="pushable" onclick="openClient()">
+                      <button class="pushable button" onclick="openClient()">
                         <span class="shadow"></span>
                         <span class="edge"></span>
                         <span class="front">
@@ -229,5 +231,21 @@ layout: none
             function openClient() { client.open(); }
             function exitClient() { client.exit(true); }
         </script>
+        <script>
+            let input = document.querySelector(".input");
+            let button = document.querySelector(".button");
+            
+            button.disabled = true; //setting button state to disabled
+            
+            input.addEventListener("change", stateHandle);
+            
+            function stateHandle() {
+              if (document.querySelector(".input").value === "") {
+                button.disabled = true; //button remains disabled
+              } else {
+                button.disabled = false; //button is enabled
+              }
+            }
+            </script>
     </body>
 </html>
