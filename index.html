@@ -141,17 +141,10 @@ layout: none
         <script src="js/scripts.js"></script>
         <script src="https://cdn.withpersona.com/dist/persona-v3.7.3.js"></script>
         <script>
-            document.getElementById("firstname").addEventListener("change", GetFirstNameData);
-            document.getElementById("lastname").addEventListener("change", GetLastNameData);
-            function GetFirstNameData () {
+            function openClient() { 
               var firstname = document.getElementById("firstname").value;
-              console.log(data);
-            };
-            function GetLastNameData () {
               var lastname = document.getElementById("lastname").value;
-              console.log(data);
-            };
-            const client = new Persona.Client({
+              const client = new Persona.Client({
                 templateId: 'tmpl_8Z4MsPYgKy1EHjCR4jd9C1eB',
                 environment: 'production',
                 prefill: {
@@ -163,9 +156,8 @@ layout: none
                 console.log(`Sending finished inquiry ${inquiryId} to backend`);
                 fetch(`/server-handler?inquiry-id=${inquiryId}`);
                 }
-            });
-
-            function openClient() { client.open(); }
+              });
+              client.open(); }
             function exitClient() { client.exit(true); }
         </script>
         <script>
