@@ -48,7 +48,8 @@ layout: none
               <div class="alert alert-success" id="test-alert" role="alert" style="display:none">
                 You exited.
               </div>
-                <div class="col-md-8 mb-5" id="getstarted">
+                <div class="col-md-8 mb-5">
+                  <div id="getstarted">
                     <h2>Get Started</h2>
                     <hr />
                     <p>
@@ -84,6 +85,7 @@ layout: none
                         </span>
                       </button>
                       <!-- Button code ends here. -->
+                    </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <h2>Contact Us</h2>
@@ -170,6 +172,7 @@ layout: none
                   var new_element = document.getElementById('test-alert');
                   // replace child of the parent
                   parent.replaceChild(new_element, old_element);
+                  document.getElementById("test-alert").style.display = "block";
                 }
               });
               client.open(); }
