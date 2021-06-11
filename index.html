@@ -45,7 +45,10 @@ layout: none
         <!-- Page Content-->
         <div class="container">
             <div class="row">
-                <div class="col-md-8 mb-5">
+              <div class="alert alert-success" id="test-alert" role="alert" style="display:none">
+                You exited.
+              </div>
+                <div class="col-md-8 mb-5" id="getstarted">
                     <h2>Get Started</h2>
                     <hr />
                     <p>
@@ -152,9 +155,15 @@ layout: none
                   nameLast: lastname
                 },
                 onComplete: inquiryId => {
-                // Inquiry completed. Optionally tell your server about it.
-                console.log(`Sending finished inquiry ${inquiryId} to backend`);
-                fetch(`/server-handler?inquiry-id=${inquiryId}`);
+                  // Inquiry completed. Optionally tell your server about it.
+                  console.log(`Sending finished inquiry ${inquiryId} to backend`);
+                  fetch(`/server-handler?inquiry-id=${inquiryId}`);
+                },
+                onFail: inquiryId => {
+                  console.log('hooray FAIL')
+                },
+                onExit() {
+                  document.getElementById('getstarted').innerHTML = document.getElementById('test-alert').innerHTML;
                 }
               });
               client.open(); }
