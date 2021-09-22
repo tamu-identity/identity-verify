@@ -66,12 +66,12 @@ layout: none
                       <strong>Note:</strong> Please have your driver's license (or other government-issued ID) ready.
                     </div>
                     <p>
-                        This service uses <a href="https://withpersona.com">Persona</a>. 
-                        Data collected using this service is subject to <a href="https://withpersona.com/legal/privacy-policy">Persona's privacy policy</a> 
+                        This service uses <a href="#">Service</a>. 
+                        Data collected using this service is subject to <a href="#">Service's privacy policy</a> 
                         and the Division of IT's identity verification <a href="data-handling.html">data handling policy</a>. 
                     </p>
                     <p>
-                        Persona compares your government-issued photo ID and a live "selfie" to verify your identity.
+                        Service compares your government-issued photo ID and a live "selfie" to verify your identity.
                         After your verification is finished, Help Desk Central will receive a notification. 
                     </p>
                     <p>
@@ -90,7 +90,7 @@ layout: none
                     <label for="uin">UIN:</label>
                     <input class="form-control" type="text" id="uin" placeholder="Your UIN">
                     <br>
-                      <button class="pushable button" onclick="openClient()">
+                      <button class="pushable button">
                         <span class="shadow"></span>
                         <span class="edge"></span>
                         <span class="front">
@@ -154,10 +154,9 @@ layout: none
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <!-- Persona SDK-->
-        <script src="https://cdn.withpersona.com/dist/persona-v3.7.3.js"></script>
+
         <!-- Persona functions to launch and interact with modal. -->
-        <script>
+        <!-- <script>
             function openClient() { 
               var firstname = document.getElementById("firstname").value;
               var lastname = document.getElementById("lastname").value;
@@ -201,7 +200,7 @@ layout: none
               });
               client.open(); }
             function exitClient() { client.exit(true); }
-        </script>
+        </script> -->
         <script>
             let firstname = document.querySelector('#firstname');
             let lastname = document.querySelector('#lastname');
