@@ -78,7 +78,7 @@ layout: none
                     <label for="uin"><strong>Enter Your NetID:</strong></label>
                     <input class="form-control" type="text" id="uin" placeholder="Your NetID (e.g. joeaggie)">
                     <br>
-                      <button class="pushable button">
+                      <button class="pushable button" hx-get="https://tamu-identity-verifier.azurewebsites.net/api/Duo_Push" hx-swap="outerHTML">
                         <span class="shadow"></span>
                         <span class="edge"></span>
                         <span class="front">
@@ -137,6 +137,7 @@ layout: none
         <!-- Bootstrap core JS-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/htmx.org@1.6.1"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
 
