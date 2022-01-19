@@ -63,15 +63,10 @@ layout: none
                     <h2>Get Started</h2>
                     <hr />
                     <div class="alert alert-info" role="alert">
-                      <strong>Note:</strong> Please have your driver's license (or other government-issued ID) ready.
+                      <strong>Note:</strong> Please have your Duo MFA device (such as your phone) ready.
                     </div>
                     <p>
-                        This service uses <a href="#">Service</a>. 
-                        Data collected using this service is subject to <a href="#">Service's privacy policy</a> 
-                        and the Division of IT's identity verification <a href="data-handling.html">data handling policy</a>. 
-                    </p>
-                    <p>
-                        Service compares your government-issued photo ID and a live "selfie" to verify your identity.
+                        This service performs an MFA challenge to prove control of a Duo device attached to your NetID.
                         After your verification is finished, Help Desk Central will receive a notification. 
                     </p>
                     <p>
@@ -80,15 +75,8 @@ layout: none
                             <li>If verification is not successful, Help Desk Central will assist you in an alternate identity verification process.</li>
                         </ul>
                     </p>
-
-                    <label for="firstname">First Name (On Legal Document):</label>
-                    <input class="form-control" type="text" id="firstname" placeholder="Joseph">
-                    <br>
-                    <label for="lastname">Last Name (On Legal Document):</label>
-                    <input class="form-control" type="text" id="lastname" placeholder="Aggie">
-                    <br>
-                    <label for="uin">UIN:</label>
-                    <input class="form-control" type="text" id="uin" placeholder="Your UIN">
+                    <label for="uin">Enter Your NetID:</label>
+                    <input class="form-control" type="text" id="uin" placeholder="Your NetID (e.g. joeaggie)">
                     <br>
                       <button class="pushable button">
                         <span class="shadow"></span>
@@ -152,62 +140,12 @@ layout: none
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
 
-        <!-- Persona functions to launch and interact with modal. -->
-        <!-- <script>
-            function openClient() { 
-              var firstname = document.getElementById("firstname").value;
-              var lastname = document.getElementById("lastname").value;
-              const client = new Persona.Client({
-                templateId: 'tmpl_8Z4MsPYgKy1EHjCR4jd9C1eB',
-                environment: 'production',
-                prefill: {
-                  nameFirst: firstname,
-                  nameLast: lastname
-                },
-                onComplete: inquiryId => {
-                  // Inquiry completed.
-                  console.log('User identity verification succeeded.')
-                  var old_element = document.querySelector('#getstarted');
-                  // get the parent
-                  var parent = old_element.parentNode;
-                  var new_element = document.getElementById('success-alert');
-                  // replace child of the parent
-                  parent.replaceChild(new_element, old_element);
-                  document.getElementById("success-alert").style.display = "block";
-                },
-                onFail: inquiryId => {
-                  console.log('User identity verification failed.')
-                  var old_element = document.querySelector('#getstarted');
-                  // get the parent
-                  var parent = old_element.parentNode;
-                  var new_element = document.getElementById('error-alert');
-                  // replace child of the parent
-                  parent.replaceChild(new_element, old_element);
-                  document.getElementById("error-alert").style.display = "block";
-                },
-                onExit() {
-                  var old_element = document.querySelector('#getstarted');
-                  // get the parent
-                  var parent = old_element.parentNode;
-                  var new_element = document.getElementById('exit-alert');
-                  // replace child of the parent
-                  parent.replaceChild(new_element, old_element);
-                  document.getElementById("exit-alert").style.display = "block";
-                }
-              });
-              client.open(); }
-            function exitClient() { client.exit(true); }
-        </script> -->
         <script>
-            let firstname = document.querySelector('#firstname');
-            let lastname = document.querySelector('#lastname');
             let uin = document.querySelector('#uin');
             let button = document.querySelector(".button");
             
             button.disabled = true; // setting button state to disabled
-            
-            firstname.addEventListener("change", stateHandle);
-            lastname.addEventListener("change", stateHandle);
+
             uin.addEventListener("change", stateHandle);
             
             function stateHandle() {
