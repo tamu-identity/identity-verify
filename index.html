@@ -168,8 +168,6 @@ layout: none
 
                 function getName() {
                     const Http = new XMLHttpRequest();
-                    Http.open("GET", result);
-                    Http.send();
 
                     Http.onreadystatechange = (e) => {
                         console.log(Http.responseText)
@@ -178,6 +176,9 @@ layout: none
                         }
                         
                     }
+
+                    Http.open("GET", result);
+                    Http.send();
 
                 }
 
