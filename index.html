@@ -167,17 +167,22 @@ layout: none
                 document.getElementById("button").addEventListener("click", getName);
 
                 function getName() {
-                    const Http = new XMLHttpRequest();
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', result, true);
 
-                    Http.onreadystatechange = (e) => {
-                        
-                        console.log(Http.responseText)
-                        alert(Http.responseText);
-                        
-                    }
+                    // If specified, responseType must be empty string or "text"
+                    xhr.responseType = 'text';
 
-                    Http.open("GET", result);
-                    Http.send();
+                    xhr.onload = function () {
+                        if (xhr.readyState === xhr.DONE) {
+                            if (xhr.status === 200) {
+                                console.log(xhr.responseText);
+                                alert(xhr.responseText);
+                            }
+                        }
+                    };
+
+                    xhr.send(null);
 
                 }
 
