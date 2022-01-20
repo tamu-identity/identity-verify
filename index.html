@@ -170,10 +170,9 @@ layout: none
                     const Http = new XMLHttpRequest();
 
                     Http.onreadystatechange = (e) => {
+                        
                         console.log(Http.responseText)
-                        if (Http.status==200 && Http.responseText!=null) {
-                            document.getElementById("test").outerHTML = "<p>" + Http.responseText + "</p>";
-                        }
+                        alert(Http.responseText);
                         
                     }
 
