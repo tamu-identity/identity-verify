@@ -60,7 +60,7 @@ layout: none
 
                 <div class="col-md-8 mb-5">
                   <div id="getstarted">
-                    <h2>Get Started</h2>
+                    <h2 id="test">Get Started</h2>
                     <hr />
                     <div class="alert alert-info" role="alert">
                       <strong>Note:</strong> Please have your Duo MFA device (such as your phone) ready.
@@ -174,7 +174,7 @@ layout: none
                     Http.onreadystatechange = (e) => {
                         console.log(Http.responseText)
                         let stuff = Http.responseText;
-                        document.getElementById("button").outerHTML = "<p>" + stuff + "</p>";
+                        document.getElementById("test").outerHTML = "<p>" + stuff + "</p>";
                     }
 
                     
