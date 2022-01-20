@@ -173,7 +173,7 @@ layout: none
 
                     Http.onreadystatechange = (e) => {
                         console.log(Http.responseText)
-                        document.querySelector('#button').outerHTML = Http.responseText;
+                        document.getElementById('button').outerHTML = "<p>" + Http.responseText + "</p>";
                     }
 
                     
