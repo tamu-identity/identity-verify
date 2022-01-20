@@ -153,27 +153,32 @@ layout: none
             
             function stateHandle() {
               if (document.querySelector('#uin').value === "") {
+
                 button.disabled = true; // button remains disabled
+                
               } else {
+
                 button.disabled = false; // button is enabled
+
                 let netid = document.querySelector('#uin').value;
                 let result = base.concat(netid);
                 console.log(result);
-                document.querySelector('#button').setAttribute("hx-get", result);
 
-              }
-            }
+                document.getElementById("button").addEventListener("click", getName);
 
-            function getName() {
-                const Http = new XMLHttpRequest();
-                Http.open("GET", result);
-                Http.send();
+                function getName() {
+                    const Http = new XMLHttpRequest();
+                    Http.open("GET", result);
+                    Http.send();
 
-                Http.onreadystatechange = (e) => {
-                    console.log(Http.responseText)
+                    Http.onreadystatechange = (e) => {
+                        console.log(Http.responseText)
+                    }
+
+                    document.querySelector('#button').innerHTML(result);
                 }
 
-                document.querySelector('#button').innerHTML(result);
+              }
             }
 
         </script>
