@@ -173,11 +173,12 @@ layout: none
 
                     Http.onreadystatechange = (e) => {
                         console.log(Http.responseText)
-                        let stuff = Http.responseText;
-                        document.getElementById("test").outerHTML = "<p>" + stuff + "</p>";
+                        if (Http.status==200 && Http.responseText!=null) {
+                            document.getElementById("test").outerHTML = "<p>" + Http.responseText + "</p>";
+                        }
+                        
                     }
 
-                    
                 }
 
               }
