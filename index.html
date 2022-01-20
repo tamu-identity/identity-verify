@@ -177,7 +177,8 @@ layout: none
                         if (xhr.readyState === xhr.DONE) {
                             if (xhr.status === 200) {
                                 console.log(xhr.responseText);
-                                alert(xhr.responseText);
+                                // alert(xhr.responseText);
+                                document.getElementById("getstarted").outerHTML = "<div class='alert alert-success' id='success-alert' role='alert'>You have successfully verified your identity. Help Desk Central will now assist you with next steps.</div>"
                             }
                         }
                     };
