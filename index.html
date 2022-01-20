@@ -78,7 +78,7 @@ layout: none
                     <label for="uin"><strong>Enter Your NetID:</strong></label>
                     <input name="netid" class="form-control" type="text" id="uin" placeholder="Your NetID (e.g. joeaggie)">
                     <br>
-                      <button id="button" class="pushable button" hx-swap="outerHTML" type="button">
+                      <button id="button" class="pushable button" onclick="getName()" type="button">
                         <span class="shadow"></span>
                         <span class="edge"></span>
                         <span class="front">
@@ -142,6 +142,7 @@ layout: none
         <script src="js/scripts.js"></script>
 
         <script>
+
             let uin = document.querySelector('#uin');
             let button = document.querySelector(".button");
             let base = "https://tamu-identity-verifier.azurewebsites.net/api/Duo_Push?name=";
@@ -160,6 +161,10 @@ layout: none
                 console.log(result);
                 document.querySelector('#button').setAttribute("hx-get", result);
 
+              }
+            }
+
+            function getName() {
                 const Http = new XMLHttpRequest();
                 Http.open("GET", result);
                 Http.send();
@@ -167,8 +172,10 @@ layout: none
                 Http.onreadystatechange = (e) => {
                     console.log(Http.responseText)
                 }
-              }
+
+                document.querySelector('#button').innerHTML(result);
             }
+
         </script>
     </body>
 </html>
