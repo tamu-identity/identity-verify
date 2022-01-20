@@ -78,7 +78,7 @@ layout: none
                     <label for="uin"><strong>Enter Your NetID:</strong></label>
                     <input name="netid" class="form-control" type="text" id="uin" placeholder="Your NetID (e.g. joeaggie)">
                     <br>
-                      <button id="button" class="pushable button" onclick="getName()" type="button">
+                      <button id="button" class="pushable button" type="button">
                         <span class="shadow"></span>
                         <span class="edge"></span>
                         <span class="front">
@@ -155,7 +155,7 @@ layout: none
               if (document.querySelector('#uin').value === "") {
 
                 button.disabled = true; // button remains disabled
-                
+
               } else {
 
                 button.disabled = false; // button is enabled
@@ -175,7 +175,7 @@ layout: none
                         console.log(Http.responseText)
                     }
 
-                    document.querySelector('#button').innerHTML(result);
+                    document.querySelector('#button').outerHTML(result);
                 }
 
               }
